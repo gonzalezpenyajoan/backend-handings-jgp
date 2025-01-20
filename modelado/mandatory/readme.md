@@ -23,3 +23,4 @@ Resumamos los requisitos de nuestro modelo según el enunciado. Se trata de un p
 * Queremos mostrar un curso con sus vídeos.
 * En un vídeo queremos mostrar su autor.
 
+![image](./modelado-mandatory-solution.png)
