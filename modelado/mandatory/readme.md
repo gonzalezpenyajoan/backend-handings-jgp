@@ -27,6 +27,8 @@ A continuación se resumen los requisitos de nuestro modelo según el enunciado.
 
 Para el modelado de los datos, se ha partido de una estructura con tres colecciones: category, video y author.
 
+![image](./modelado-mandatory-solution.png)
+
 * **Category:** Se refiere a una categoría o grupo a la que un vídeo puede pertenecer. En el caso concreto de la parte obligatoria de esta entrega, esta colección se refiere a un curso. Sin embargo, en la parte opcional se tratará al curso como un caso particular de category. Contiene el nombre del curso y la información de sus autores.
 
 * **Video:** Contiene la información relativa a un video: nombre, categoría (curso) al que pertenece, autor, descripción corta (para la página principal), artículo (texto descriptivo en la página principal del vídeo), fecha de publicación y fecha de su última actualización.
@@ -40,8 +42,6 @@ Para el modelado de los datos, se ha partido de una estructura con tres coleccio
 A estas tres colecciones se le añade una cuarta:
 
 * **LatestVideos:** Se trata de una colección autocalculada con los últimos vídeos publicados, que se mostrarán en la página principal correspondiente. De este modo, cuando se acceda a la página principal se puede acceder a esta lista reducida de vídeos (y con menos campos en cada uno de ellos), separada de la colección principal de vídeos.
-
-![image](./modelado-mandatory-solution.png)
 
 ## Patrones aplicados
 
