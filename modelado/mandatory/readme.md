@@ -4,13 +4,13 @@
 
 ### Descripción general
 
-Resumamos los requisitos de nuestro modelo según el enunciado. Se trata de un portal de programación con distintos cursos conteniendo distintos videos dentro de cada curso.
+A continuación se resumen los requisitos de nuestro modelo según el enunciado. Se trata de un portal de programación con distintos cursos conteniendo distintos videos dentro de cada curso.
 
 * Un vídeo pertenece a un único curso.
 * Un vídeo está hecho por un único autor y se muestra en la página del vídeo.
 * Un curso puede estar hecho por múltiples autores. Un autor puede haber participado en múltiples cursos.
 * Se puede ver una página con datos del autor → Poco visitada.
-* Se puede ver el detalle de un curso y los vídeos asociados a dicho curso. → Visitada a menudo.
+* Se puede ver el detalle de un curso y los vídeos asociados a dicho curso → Visitada a menudo.
 * Se puede ver una página propia para cada vídeo con su descripción y detalles → Visitada a menudo.
 * El archivo multimedia se almacena en un storage S3 y en un headless CMS → Solo almacenamos GUID o URL.
 * Los detalles del vídeo también están almacenados en un recurso externo. Mongo solo almacenará un GUID.
@@ -45,8 +45,26 @@ A estas tres colecciones se le añade una cuarta:
 
 ## Patrones aplicados
 
-### Subset pattern (computer)
-
 ### Extended reference pattern
 
+En este modelo, los cursos y videos consumen datos de los autores. No obstante, mientras que estas páginas se espera que sean muy visitadas, la página principal de los autores se espera que tenga muchas menos visitas. Esto implica que cargar la colección completa de los autores para usarse en los vídeos y cursos es ineficiente.
+
+Aplicando el patrón de extended reference pattern, podemos embeber los datos de los autores directamente sobre las colecciones de vídeos y cursos. De esta forma, solo se consume la información de los autores necesaria, tanto por el número de autores como por el número de campos de cada autor a cargar.
+
+El precio a pagar es que se están duplicando los datos, y por tanto en un caso de escritura hay que modificar todas las referencias al mismo autor en distintas colecciones. Sin embargo, sabemos por el enunciado que no se espera que se cree más de un autor al día, y por extensión (y sentido común) tampoco se espera una gran frecuencia del resto de operacines CRUD sobre los autores.
+
+### Subset pattern / Computed pattern
+
+Dado que se va a consumir con mucha frecuencia un listado de los últimos vídeos publicados, en el modelo se ha tomado la decisión de crear una colección distinta a la de "video" llamada "latestVideos". De esta forma, la página principal puede consumir directamente un subconjunto (subset) de vídeos que el backend le sirve por separado. De esta forma, no será necesario realizar repetidamente una consulta a la colección de vídeos filtrando por las fechas de publicación más recientes, sino que se puede precalcular ese subconjunto tras producirse una escritura de un nuevo vídeo (se sabe por el enunciado que no se espera publicar más de un par de vídeos al día).
+
+Esta decisión de diseño presenta características mixtas del Subset pattern y el Computed pattern vistos en la teoría. Por un lado, se usa la filosofía del Subset pattern en tanto en cuanto se está tomando un subset de vídeos para evitar cargar todo el conjunto (y con todos los campos), aunque en este caso se está poniendo el subset en una colección nueva en lugar de embeberla como campo en una ya existente como pasaba con las reseñas. Por otro lado, esta implementación también usa la filosofía del Computer pattern para evitar un cálculo repetitivo de seleccionar los vídeos filtrando por su fecha de publicación o de actualización (aunque en este caso no se trate de un cómputo matemático como en los ejemplos de la teoría). De esta forma, es posible dejar esto precalculado tras cada escritura dado que no se espera publicar más de un par de videos al día.
+
+> En la solución propuesta, latestVideos solo ha eliminado el GUID hacia el artículo comparado con la colección de videos, pero si la página principal no precisa de datos como el autor también se podrían suprimir esos campos para mayor optimización.
+
+Tal como pasa con el patrón de Extended reference, el precio a pagar en este planteamiento es el duplicado de datos. Esto hace que en caso de operaciones CRUD se deba de modificar documentos en distintas colecciones.
+
 ### Tree pattern
+
+En la parte obligatoria de esta entrega las referencias entre padres e hijos son mínimas, ya que con solo dos niveles de jerarquía ( Curso > Video ) no se requiere de mayor referencia que establecer una relación 1:M entre category y video.
+
+Sin embargo, como veremos en la parte opcional de la entrega, en esta parte obligatoria hemos preparado los cimientos para establecer un Tree pattern de cara a la parte opcional.
