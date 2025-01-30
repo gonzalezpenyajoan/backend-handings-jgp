@@ -14,9 +14,7 @@ En este base de datos puedes encontrar un montón de alojamientos y sus reviews,
 
 Pregunta. Si montaras un sitio real, ¿Qué posibles problemas pontenciales les ves a como está almacenada la información?
 
-```
-Respuesta: Se observa que las reviews están todatalmente "embebidas" en cada documento de la colección, haciendo que algunos documentos sean muy grandes debido a la cantidad de reviews que tienen. Se debería crear una colección de reviews a parte y en todo caso se podrían "embeber" las más importantes.
-```
+**Respuesta:** Se observa que las reviews están totalmente "embebidas" en cada documento de la colección, haciendo que algunos documentos sean muy grandes debido a la cantidad de reviews que tienen. Se debería crear una colección de reviews a parte y en todo caso se podrían "embeber" las más importantes.
 
 ## Obligatorio
 
@@ -136,7 +134,6 @@ db.listingsAndReviews.find(
     },
     { _id: 0, name: 1, price: 1, beds: 1, bathrooms: 1, "review_scores.review_scores_rating": 1, "address.market": 1, "address.country": 1}
 )
-
 ```
 
 * También queremos que el huésped sea un superhost (host.host_is_superhost) y que no tengamos que pagar depósito de seguridad (security_deposit).

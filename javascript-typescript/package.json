@@ -1,0 +1,20 @@
+{
+  "devDependencies": {
+    "tsx": "^4.19.2"
+  },
+  "name": "javascript-typescript",
+  "version": "1.0.0",
+  "description": "Un texto en formato CSV tiene el nombre de los campos en la primera fila y los datos en el resto, separados por comas. Crea un parseador que reciba un string en formato CSV y devuelva una colección de objetos. Utiliza destructuring, rest y spread operator donde creas conveniente.",
+  "main": "ej1.js",
+  "dependencies": {
+    "esbuild": "^0.23.1",
+    "get-tsconfig": "^4.10.0",
+    "resolve-pkg-maps": "^1.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
