@@ -1,2 +1,6 @@
 javascript-typescript/node_modules
-api-rest/node_modules
+api-rest/feature/obligatorio/node_modules
+api-rest/feature/obligatorio/mongo-data
+api-rest/feature/opcional/node_modules
+api-rest/feature/opcional/mongo-data
+api-rest/feature/opcional

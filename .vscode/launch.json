@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "node",
+        "request": "launch",
+        "name": "Debug API",
+        "program": "src/index.js", // Reemplázalo con el archivo principal de tu API
+        "env": {
+          "NODE_ENV": "development"
+        },
+        "outFiles": ["src/**/*.js"],
+        "console": "integratedTerminal"
+      }
+    ]
+  }
+  
