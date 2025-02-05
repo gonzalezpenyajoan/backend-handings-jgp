@@ -1,0 +1,10 @@
+services:
+  house-store-db-optional:
+    container_name: house-store-db-optional
+    image: mongo:7
+    ports:
+      - 27018:27018
+    volumes:
+      - ./mongo-data:/data/db
+volumes:
+  mongo-data:
