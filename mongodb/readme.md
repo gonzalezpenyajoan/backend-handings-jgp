@@ -4,7 +4,7 @@ Vamos a trabajar con el set de datos de Mongo Atlas airbnb. Lo puedes encontrar 
 
 Para restaurarlo puede seguir las instrucciones del primer vídeo de la sección 'Consultando Datos'.
 
-    Acuerdate de mirar si en el directorio /opt/app del contenedor Mongo hay contenido de backups previos que haya que borrar.
+Acuerdate de mirar si en el directorio /opt/app del contenedor Mongo hay contenido de backups previos que haya que borrar.
 
 Para entregar las soluciones, añade un README.md a tu repositorio del bootcamp incluyendo enunciado y consulta (lo que pone 'Pega aquí tu consulta').
 
@@ -24,7 +24,8 @@ Esta es la parte mínima que tendrás que entregar para superar este laboratorio
 
 * Saca en una consulta cuantos alojamientos hay en España.
 
-```
+
+```javascript
 use('sample_airbnb')
 db.listingsAndReviews.countDocuments(
     { "address.country_code": "ES" }
@@ -35,7 +36,7 @@ db.listingsAndReviews.countDocuments(
     * Ordenados por precio de forma ascendente.
     * Sólo muestra: nombre, precio, camas y la localidad (address.market).
 
-```
+```javascript
 use('sample_airbnb')
 db.listingsAndReviews.find(
     { "address.country_code": "ES" },
@@ -50,7 +51,7 @@ db.listingsAndReviews.find(
     * Dos cuartos de baño o más.
     * Sólo muestra: nombre, precio, camas y baños.
 
-```
+```javascript
 use('sample_airbnb')
 db.listingsAndReviews.find(
     {
@@ -64,7 +65,7 @@ db.listingsAndReviews.find(
 * Aunque estamos de viaje no queremos estar desconectados, así que necesitamos que el alojamiento también tenga conexión wifi. A los requisitos anteriores, hay que añadir que el alojamiento tenga wifi.
     * Sólo muestra: nombre, precio, camas, baños y servicios (amenities).
 
-```
+```javascript
 use('sample_airbnb')
 db.listingsAndReviews.find(
     {
@@ -79,7 +80,7 @@ db.listingsAndReviews.find(
 * Y bueno, un amigo trae a su perro, así que tenemos que buscar alojamientos que permitan mascota (Pets allowed).
     * Sólo muestra: nombre, precio, camas, baños y servicios (amenities).
 
-```
+```javascript
 use('sample_airbnb')
 db.listingsAndReviews.find(
     {
@@ -96,7 +97,7 @@ db.listingsAndReviews.find(
 
 **Nota:** Cabe mencionar que existen documentos donde no existe una calificación review_scores.review_scores_rating por lo que en la siguiente consulta serán descartados:
 
-```
+```javascript
 use('sample_airbnb')
 db.listingsAndReviews.find(
     {
@@ -115,7 +116,7 @@ db.listingsAndReviews.find(
 
 Si se quisiera incluir los documentos que no tienen un review_scores.review_scores_rating a pesar de todo, se podría hacer la consulta siguiente:
 
-```
+```javascript
 use('sample_airbnb')
 db.listingsAndReviews.find(
     {
@@ -141,7 +142,7 @@ db.listingsAndReviews.find(
 
 **Nota:** El campo security_deposit no está presente en algunos documentos, por lo que la query siguiente no los devolverá a pesar de que se podría interpretar que la ausencia de un security_deposit equivale a un security_deposit = 0. Primero, veamos la consulta si ignorásemos el hecho de que security_deposit esté ausente en muchos documentos:
 
-```
+```javascript
 use('sample_airbnb')
 db.listingsAndReviews.find(
     {
@@ -173,7 +174,7 @@ db.listingsAndReviews.find(
 
 Ahora, veamos la consulta si tenemos en cuenta de que un security_deposit inexistente o nulo es equivalente a cero:
 
-```
+```javascript
 use('sample_airbnb')
 db.listingsAndReviews.find(
     {
@@ -209,7 +210,7 @@ db.listingsAndReviews.find(
 
 Por último, también habría sido posible hacer un fill con el aggregation framework. Veámoslo:
 
-```
+```javascript
 use('sample_airbnb')
 db.listingsAndReviews.aggregate([
     {
@@ -260,7 +261,7 @@ db.listingsAndReviews.aggregate([
     * Localidad (no queremos mostrar un objeto, sólo el string con la localidad).
     * Precio
 
-```
+```javascript
 use('sample_airbnb')
 db.listingsAndReviews.aggregate([
     {
@@ -281,7 +282,7 @@ db.listingsAndReviews.aggregate([
 
 * Queremos saber cuántos alojamientos hay disponibles por país.
 
-```
+```javascript
 use('sample_airbnb')
 db.listingsAndReviews.aggregate([
     {
@@ -297,7 +298,7 @@ db.listingsAndReviews.aggregate([
 
 * Queremos saber el precio medio de alquiler de airbnb en España.
 
-```
+```javascript
 use('sample_airbnb')
 db.listingsAndReviews.aggregate([
     {
@@ -316,7 +317,7 @@ db.listingsAndReviews.aggregate([
 
 * ¿Y si quisieramos hacer como el anterior, pero sacarlo por países?
 
-```
+```javascript
 use('sample_airbnb')
 db.listingsAndReviews.aggregate([
     {
@@ -330,7 +331,7 @@ db.listingsAndReviews.aggregate([
 
 * Repite los mismos pasos para calcular el precio medio de alquiler, pero agrupando también por numero de habitaciones.
 
-```
+```javascript
 use('sample_airbnb')
 db.listingsAndReviews.aggregate([
     {
@@ -363,7 +364,7 @@ Queremos mostrar el top 5 de alojamientos más caros en España, con los siguent
 * Ciudad.
 * Servicios, pero en vez de un array, un string con todos los servicios incluidos.
 
-```
+```javascript
 use('sample_airbnb')
 db.listingsAndReviews.aggregate([
     {
