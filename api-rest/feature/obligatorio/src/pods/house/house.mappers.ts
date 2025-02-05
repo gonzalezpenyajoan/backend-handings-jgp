@@ -3,9 +3,9 @@ import * as apiModel from "./house.api-model.js";
 import { ObjectId } from "mongodb";
 
 export const mapHouseFromModelToAPI = (house: model.House): apiModel.House => {
-    house.reviews.sort((review1, review2) => - compareDates(review1.date, review2.date))
+    house.reviews.sort((review1, review2) => - compareDates(review1.date, review2.date));
     return {
-        id: house._id.toHexString(),
+        id: house._id,
         name: house.name,
         image: house.images.picture_url,
         description: house.description,
@@ -28,7 +28,7 @@ export const mapHouseListFromModelToAPI = (houseList: model.House[]): apiModel.H
 
 export const mapHouseFromAPIToModel = (house: apiModel.House): model.House => {
     return {
-        _id: new ObjectId(house.id as string),
+        _id: house.id,
         name: house.name,
         images: {
             picture_url: house.image

@@ -1,6 +1,6 @@
 import { ObjectId } from "mongodb";
 export interface House {
-    _id: ObjectId;
+    _id: String;
     listing_url?: String;
     name: String;
     summary?: String;
@@ -51,7 +51,7 @@ export interface Images {
 }
 
 export interface Host {
-    host_id: ObjectId;
+    host_id: String;
     host_url: String;
     host_name: String;
     host_location: String;
@@ -101,10 +101,10 @@ export interface ReviewScores {
 }
 
 export interface Review {
-    _id: ObjectId;
+    _id: String;
     date: Date;
-    listing_id: ObjectId;
-    reviewer_id: ObjectId;
+    listing_id: String;
+    reviewer_id: String;
     reviewer_name: String;
     comments?: String;
 }

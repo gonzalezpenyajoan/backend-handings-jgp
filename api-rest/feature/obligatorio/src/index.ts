@@ -15,7 +15,7 @@ app.use('/api/houses', houseAPI)
 
 app.use(logErrorRequestMiddleware);
 
-app.listen(ENV.PORT, async() => { 
+app.listen(ENV.PORT, async() => {
     if(!ENV.IS_API_MOCK) {
         await dbServer.connect(ENV.MONGODB_URL);
     } else {

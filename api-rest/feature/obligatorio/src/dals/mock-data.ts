@@ -1,5 +1,5 @@
 import { House } from "./house/house.model.js";
-import { ObjectId } from "mongodb";
+import { createId } from "#common/helpers/id.helper.js";
 
 export interface DB {
     houses: House[];
@@ -8,7 +8,7 @@ export interface DB {
 export const db: DB = {
     houses: [
         {
-            _id: new ObjectId(),
+            _id: createId(),
             listing_url: "https://www.airbnb.com/rooms/16893365",
             name: "Sophisticated, waterfront living w/ resort pool, hot tub, & beach access",
             summary: "This property is a 1364  square feet,  3 Bedroom, 2 bathroom accommodation located in Kaanapali.  Sophisticated, waterfront living w/ resort pool, hot tub, & beach access offers 1 Sofa bed, 2 Twin bed, 2 King bed. It can host 8 people.  This accommodation features washer/dryer. Please see the description below or inquire for more details!",
@@ -79,7 +79,7 @@ export const db: DB = {
                 xl_picture_url: ""
             },
             host: {
-                host_id: new ObjectId(),
+                host_id: createId(),
                 host_url: "https://www.airbnb.com/users/show/111808435",
                 host_name: "Vacasa",
                 host_location: "US",
@@ -134,57 +134,57 @@ export const db: DB = {
             },
             reviews: [
                 {
-                    _id: new ObjectId(),
+                    _id: createId(),
                     date: new Date("2017-09-04T04:00:00.000Z"),
-                    listing_id: new ObjectId(),
-                    reviewer_id: new ObjectId(),
+                    listing_id: createId(),
+                    reviewer_id: createId(),
                     reviewer_name: "Li",
                     comments: "This place has the best ocean view you can imagine. Beach is in downstairs, and you can watch sunset from the balcony. The facility is clean and well managed. As a matter of fact, the place is offered and maintained by a company."
                 },
                 {
-                    _id: new ObjectId(),
+                    _id: createId(),
                     date: new Date("2018-06-23T04:00:00.000Z"),
-                    listing_id: new ObjectId(),
-                    reviewer_id: new ObjectId(),
+                    listing_id: createId(),
+                    reviewer_id: createId(),
                     reviewer_name: "James",
                     comments: "Very, very convenient, delivered exactly what we wanted,  comfortable."
                 },
                 {
-                    _id: new ObjectId(),
+                    _id: createId(),
                     date: new Date("2018-07-11T04:00:00.000Z"),
-                    listing_id: new ObjectId(),
-                    reviewer_id: new ObjectId(),
+                    listing_id: createId(),
+                    reviewer_id: createId(),
                     reviewer_name: "Chris",
                     comments: "Great place, great view, highly recommend!!!"
                 },
                 {
-                    _id: new ObjectId(),
+                    _id: createId(),
                     date: new Date("2018-11-10T05:00:00.000Z"),
-                    listing_id: new ObjectId(),
-                    reviewer_id: new ObjectId(),
+                    listing_id: createId(),
+                    reviewer_id: createId(),
                     reviewer_name: "Julia",
                     comments: "We had a wonderful stay at Vacasa’s space. The location is perfect- looking out at the ocean and right above a beach perfect for kids. It was great to have access to the two pools as well and towel service. We stayed here with two families with kids and the space worked well. The only thing that I would have added would have been the option for a daily cleaning service, but we also didn’t ask so perhaps it is available. Would definitely stay here again!"
                 },
                 {
-                    _id: new ObjectId(),
+                    _id: createId(),
                     date: new Date("2018-11-22T05:00:00.000Z"),
-                    listing_id: new ObjectId(),
-                    reviewer_id: new ObjectId(),
+                    listing_id: createId(),
+                    reviewer_id: createId(),
                     reviewer_name: "Ali",
                     comments: "This place has the amenities of a resort without the \"all inclusive/resort\" feel. It is a beautiful grounds, and you can do you own thing, or join in the resort. We had 3 couples staying in the place and it was plenty large enough for everyone. Absolutely stunning view that did not disappoint!"
                 },
                 {
-                    _id: new ObjectId(),
+                    _id: createId(),
                     date: new Date("2018-11-26T05:00:00.000Z"),
-                    listing_id: new ObjectId(),
-                    reviewer_id: new ObjectId(),
+                    listing_id: createId(),
+                    reviewer_id: createId(),
                     reviewer_name: "Jonas",
                     comments: "Beautiful apartment with ocean view in an amazing location right at the beach."
                 }
             ]
         },
         {
-            _id: new ObjectId(),
+            _id: createId(),
             listing_url: "https://www.airbnb.com/rooms/1704560",
             name: "Beautiful/Spacious 1 Bedroom in LES",
             summary: "",
@@ -248,7 +248,7 @@ export const db: DB = {
               xl_picture_url: ""
             },
             host: {
-              host_id: new ObjectId(),
+              host_id: createId(),
               host_url: "https://www.airbnb.com/users/show/5693756",
               host_name: "Daniel",
               host_location: "New York, New York, United States",
@@ -304,56 +304,56 @@ export const db: DB = {
             },
             reviews: [
               {
-                _id: new ObjectId(),
+                _id: createId(),
                   date: new Date("2013-10-09T04:00:00.000Z"),
-                listing_id: new ObjectId(),
-                reviewer_id: new ObjectId(),
+                listing_id: createId(),
+                reviewer_id: createId(),
                 reviewer_name: "Morgan",
                 comments: "Daniel's apartment is great. \r\n\r\nMy firend and I stayed in his apartment for 4 nights. It was perfect for what we needed. The location is great, close to lots of bars and restaurants in the LES. Being on a smaller street the place is really quiet at night which was great. \r\n\r\nThe apartment is very spacious (unlike most NYC apartments) and the bed was very comfortable. A huge plus for sleepy travelers! Daniel has done a great job of styling the apartment and it is equipped with everything you would need. Shower pressure is good too!\r\n\r\nAs our host Daniel was very welcoming. He went out of his way to make sure we had everything we needed an gave us some great tips about what to do during our stay in NYC. He was prompt with his communications with us and the whole process of picking up and leaving the keys was easy.\r\n\r\nWhen we come back to the city we will definitely stay at Daniel's place again. We would highly recommend it to everyone."
               },
               {
-                _id: new ObjectId(),
+                _id: createId(),
                   date: new Date("2013-10-17T04:00:00.000Z"),
-                listing_id: new ObjectId(),
-                reviewer_id: new ObjectId(),
+                listing_id: createId(),
+                reviewer_id: createId(),
                 reviewer_name: "Filippa",
                 comments: "Daniel was an excellent host during our stay! He is very polite, friendly and fun and answered all our questions about New York. The apartment is spacious, modern and is located in a very nice area, very close to all shopping and good restaurants in SOHO, Lower East Side, China Town and in Little Italy. We warmly recommend Daniel as a host and the location of the apartment. "
               },
               {
-                _id: new ObjectId(),
+                _id: createId(),
                   date: new Date("2013-10-22T04:00:00.000Z"),
-                listing_id: new ObjectId(),
-                reviewer_id: new ObjectId(),
+                listing_id: createId(),
+                reviewer_id: createId(),
                 reviewer_name: "Kristi",
                 comments: "We LOVED our stay in Daniel's Apartment. The place was bigger than expected, and accommodated us (a party of 5) nicely. You couldn't ask for a better location if you want to be in the middle of it all in NYC. Walking distance from great restaurants shopping so there was always something to do day or night. Thanks Daniel! You were a great host and made out time in the City perfect."
               },
               {
-                _id: new ObjectId(),
+                _id: createId(),
                   date: new Date("2013-11-02T04:00:00.000Z"),
-                listing_id: new ObjectId(),
-                reviewer_id: new ObjectId(),
+                listing_id: createId(),
+                reviewer_id: createId(),
                 reviewer_name: "Frederic",
                 comments: "Nous avons partagé en famille ce bel appartement, propre, joliment décoré, dans une construction récente. Il es très bien situé, disposant de commerces de proximité et de stations de métro (Essex Street, Grand Street) qui permettent de gagner rapidement les zones touristiques de Manhattan. Le quartier est calme, animé et permet de rentrer à n'importe quelle heure de la nuit. \r\nDaniel est un hôte adorable que l'on peut contacter à tout moment, toujours serviable avec le sourire. Nous ne pouvons que le recommander à toute personne désireuse de découvrir New York. Sans problème, nous reprendrons cet appartement si l'occasion nous est donnée de retourner arpenter les avenues de la Grosse Pomme.\r\nFrédéric, originaire de la région parisienne"
               },
               {
-                _id: new ObjectId(),
+                _id: createId(),
                   date: new Date("2013-11-11T05:00:00.000Z"),
-                listing_id: new ObjectId(),
-                reviewer_id: new ObjectId(),
+                listing_id: createId(),
+                reviewer_id: createId(),
                 reviewer_name: "Florence",
                 comments: "Daniel was a great host ! He greated us with a nice bottle of wine and was always present for the small questions we might have, and very responsive too. \nHis appartment is very specious and filled with natural light, which makes it very homey.\nThe location is perfect too.\nI highly recommend it for a weekly stay."
               },
               {
-                _id: new ObjectId(),
+                _id: createId(),
                   date: new Date("2013-11-15T05:00:00.000Z"),
-                listing_id: new ObjectId(),
-                reviewer_id: new ObjectId(),
+                listing_id: createId(),
+                reviewer_id: createId(),
                 reviewer_name: "Mario",
                 comments: "We had a great experience during our stay in NY. The place is in an excellent location, and made it easy to commute to all the places we went. The apartment is way better than it looks on the pictures and spacious. \r\nDaniel was great to work with, he was always available for any question I had and made sure our stay was comfortable. "
               }
             ]
           },{
-            _id: new ObjectId(),
+            _id: createId(),
             listing_url: "https://www.airbnb.com/rooms/17093333",
             name: "Newly Built Detached Apartment.",
             summary: "Our newly built detached apartment, 1 bedroom/1 bathroom,  kitchen, W/D and full refrigerator. Also there is an outside seating area, Koi fish pond with a open Gazebo, and a BBQ for you to use. We do live on the premises, and there will always be someone to help you with anything you may need to make your stay more  enjoyable(URL HIDDEN)Our friendly dogs  will be on the property and will be staying in a separate fence gated area.",
@@ -440,7 +440,7 @@ export const db: DB = {
               xl_picture_url: ""
             },
             host: {
-              host_id: new ObjectId(),
+              host_id: createId(),
               host_url: "https://www.airbnb.com/users/show/30734887",
               host_name: "Mike",
               host_location: "Honolulu, Hawaii, United States",
@@ -498,65 +498,65 @@ export const db: DB = {
             },
             reviews: [
               {
-                _id: new ObjectId(),
+                _id: createId(),
                 date: new Date("2017-03-14T04:00:00.000Z"),
-                listing_id: new ObjectId(),
-                reviewer_id: new ObjectId(),
+                listing_id: createId(),
+                reviewer_id: createId(),
                 reviewer_name: "Faustina",
                 comments: "This is the best airbnb stay ever!  I can't say enough wonderful Mike's place is. Everything in the place is high quality and brand new. This unit has everything to make the stay great and comfortable . Having the washer and dryer is a big plus since we need to wash our wet clothes and towels from the beach every day. We were able to do some light cooking so we didn't have to eat out everyday. The best part of all is the hospitality shown by Mike and his lovely family. We walked into this cozy and beautiful unit feeling at home right away. There was a basket of fruit and goodies along with a bottle of wine on the table for us to enjoy.  Communication was always clear and Mike responded promptly whenever we contacted him. He went above and beyond to make sure our stay at his place is pleasant and comfortable while respecting our privacy. It felt like home while being away from home. Kudos to Mike and family. I highly recommend Mike's place for your stay here. You will love it! Thank you so much for being the best host, Mike. "
               },
               {
-                _id: new ObjectId(),
+                _id: createId(),
                 date: new Date("2017-05-16T04:00:00.000Z"),
-                listing_id: new ObjectId(),
-                reviewer_id: new ObjectId(),
+                listing_id: createId(),
+                reviewer_id: createId(),
                 reviewer_name: "Justyna And Darek",
                 comments: "We loved Mike's place! It was immaculate with upscale amenities like gorgeous bathroom with a washlet (now I want one in my house) and close to all major routs to take us anywhere on the island. Just perfect for a couple like us that wanted a little taste of life on Oahu. Mike made us feel very welcome and comfortable, made suggestions what to see and do and was very responsive to our inquires."
               },
               {
-                _id: new ObjectId(),
+                _id: createId(),
                 date: new Date("2017-05-28T04:00:00.000Z"),
-                listing_id: new ObjectId(),
-                reviewer_id: new ObjectId(),
+                listing_id: createId(),
+                reviewer_id: createId(),
                 reviewer_name: "Rali",
                 comments: "We  have stayed in many rental homes but this one is by far the (Website hidden by Airbnb) brand new studio with everything someone on vacation might need.I'ts very clean.The location is very (Website hidden by Airbnb) about 10-15 min drive from downtown Honolulu.The neighborhood is very safe and quiet.Our host Mike and his family  are wonderful people and they were very helpful.They gave us very good information about the interesting places on the island.They welcomed us like family. We will definitely recommend this place to our friends visiting Oahu."
               },
               {
-                _id: new ObjectId(),
+                _id: createId(),
                 date: new Date("2017-06-11T04:00:00.000Z"),
-                listing_id: new ObjectId(),
-                reviewer_id: new ObjectId(),
+                listing_id: createId(),
+                reviewer_id: createId(),
                 reviewer_name: "Leialoha",
                 comments: "Mike is such a gracious host. He makes sure that your stay is comfortable and is very welcoming and so kind. His studio is absolutely breath taking. You want for nothing because everything is provided. The studio is fully stocked with amenities. A beautiful fruit and snack basket welcomes you when you arrive and a bottle of wine gives a romantic touch. The washlet toilet was amazing,and the washer dryer was a nice bonus! We felt like we were staying at a 5 star hotel.\nThe location is central to most places on Oahu, and Mike has a designated parking spot for his Airbnb guest. The neighborhood is quiet and we really enjoyed the comfort and relaxation at Mike's. We will definitely be back!"
               },
               {
-                _id: new ObjectId(),
+                _id: createId(),
                 date: new Date("2017-06-23T04:00:00.000Z"),
-                listing_id: new ObjectId(),
-                reviewer_id: new ObjectId(),
+                listing_id: createId(),
+                reviewer_id: createId(),
                 reviewer_name: "Chanida",
                 comments: "The place is very lovely with a great view.  It is very upscale and part of the house compound that has recently been built/renovated by the architect/builder/owner.  There are a lot of artisan touches in the bedroom.  There is a koi pond and an day-time table area.  The  place is built as a studio so the bathroom is somewhat open - the walls don't reach the ceiling.  The bed is comfortable and there is a washer/dryer (brand new).  Mike the host and owner is very gracious and left us a bottle of wine and some island munchies and fruit upon arrival.  There is one parking spot next to the house on the sidewalk area - that is Alewa Heights for those who know the area - very tight.\n\nWe would definitely stay again.  Very good value for the price.  You do need a car unless you do ironman triathalons and want to like half way up Alewa Heights."
               },
               {
-                _id: new ObjectId(),
+                _id: createId(),
                 date: new Date("2017-07-06T04:00:00.000Z"),
-                listing_id: new ObjectId(),
-                reviewer_id: new ObjectId(),
+                listing_id: createId(),
+                reviewer_id: createId(),
                 reviewer_name: "Charlie",
                 comments: "Everything you will need will be ready for you when you arrive. It was just like being home. It is close to Waikiki and other beaches in the East. Locale is close to all major freeways, so we got to see all of the North, East, and Southeast sides of Honolulu in a week. I was sceptical of staying in the same property with the owner, but it turned out awesome. Privacy was there, while help was just a phone call away. Mike is truly a great host and new friend."
               },
               {
-                _id: new ObjectId(),
+                _id: createId(),
                 date: new Date("2017-07-15T04:00:00.000Z"),
-                listing_id: new ObjectId(),
-                reviewer_id: new ObjectId(),
+                listing_id: createId(),
+                reviewer_id: createId(),
                 reviewer_name: "Mariya",
                 comments: "Отлично провели время в гостях у Майка и его семьи! Он встретил нас как родственников и старался помочь в любом вопросе. Жильё в отличном состоянии, все новое и хорошего качества, все что нужно для комфортного пребывания есть и даже больше) спасибо Майку, обязательно вернёмся!"
               }
             ]
           },
           {
-            _id: new ObjectId(),
+            _id: createId(),
             listing_url: "https://www.airbnb.com/rooms/17113625",
             name: "Great room, with balcony and private bathroom.",
             summary: "Our home is close to Moore Park Golf , Fox Studios Australia, The Entertainment Quarter, Centennial Park, Central Station, Shops, Cafes, Bars, City Centre . You’ll love our home because of the neighbourhood, the comfy bed, the kitchen, the area, the pool, hot tub, sauna, the parks, and people.. Our home is good for couples, solo adventurers, and business travellers.",
@@ -611,7 +611,7 @@ export const db: DB = {
               xl_picture_url: ""
             },
             host: {
-              host_id: new ObjectId(),
+              host_id: createId(),
               host_url: "https://www.airbnb.com/users/show/114941282",
               host_name: "Gavin",
               host_location: "Redfern, New South Wales, Australia",
@@ -667,41 +667,41 @@ export const db: DB = {
             },
             reviews: [
               {
-                _id: new ObjectId(),
+                _id: createId(),
                 date: new Date("2017-02-12T05:00:00.000Z"),
-                listing_id: new ObjectId(),
-                reviewer_id: new ObjectId(),
+                listing_id: createId(),
+                reviewer_id: createId(),
                 reviewer_name: "Sylvie&Herve",
                 comments: "Verry good place, good bed , good explainations , we appreciated swiming and jaccuzi after whole day discoverring Sydney, more for young people , so Nice thanks we recommand this place verry cheap and good."
               },
               {
-                _id: new ObjectId(),
+                _id: createId(),
                 date: new Date("2017-02-14T05:00:00.000Z"),
-                listing_id: new ObjectId(),
-                reviewer_id: new ObjectId(),
+                listing_id: createId(),
+                reviewer_id: createId(),
                 reviewer_name: "Jane",
                 comments: "The host canceled this reservation 2 days before arrival. This is an automated posting."
               },
               {
-                _id: new ObjectId(),
+                _id: createId(),
                 date: new Date("2017-02-15T05:00:00.000Z"),
-                listing_id: new ObjectId(),
-                reviewer_id: new ObjectId(),
+                listing_id: createId(),
+                reviewer_id: createId(),
                 reviewer_name: "Garrison",
                 comments: "The place is not too far from Sydney CBD, about 20 minutes walk to central station and $13 one way uber ride. Bus ride to CBD was about $3.80. Air conditioning in the room does not really cool the room properly. It was more like a fan. \n\nThe building and location was pretty safe. There is a GoGet Pod right in front of the building which is very convenient if you use GoGet. David, the host, was also a very nice and helpful.\n\nOverall it was a pretty good place if you're looking for a budget accomodation. Can't really complain for the price."
               },
               {
-                _id: new ObjectId(),
+                _id: createId(),
                 date: new Date("2017-09-17T04:00:00.000Z"),
-                listing_id: new ObjectId(),
-                reviewer_id: new ObjectId(),
+                listing_id: createId(),
+                reviewer_id: createId(),
                 reviewer_name: "Daniel",
                 comments: "Good location, 10 minutes walk to the closest buses. This is in a good neighborhood and we felt safe walking in the streets at night. It's close to the airport too, shops and services are all nearby.\n\nHosts were friendly, quiet, and left us to do our own thing, which we all appreciate in a share apartment, and were very happy to help if we had any questions or needed anything. Definitely recommend and there is a host of amenities available if required. \n\nNot sure how well the air conditioner works, we used it for heating and it seemed to do the trick, even though we couldn't feel any air pressure. \n\nShower and bathroom are both clean and good. \n\nWe definitely recommend these hosts."
               }
             ]
           },
           {
-            _id: new ObjectId(),
+            _id: createId(),
             listing_url: "https://www.airbnb.com/rooms/17124591",
             name: "Lindo apartamento em Copacabana bem localizado",
             summary: "Excelente apartamento com localização excepcional no coração de Copacabana! Atrás do Copacabana Palace Hotel, a 2 quadras da praia. Padaria e farmácia 24hrs logo ao lado. Várias opções de restaurantes e bares. Porteiro 24 horas. Ar-condicionado. Excelent apartment with exceptional location in the heart of Copacabana! Just behind Copacabana Palace Hotel, 2 blocka from the beach. Check out the pictures and descriptions to see what is nearby. Which is nearly everything you might need in your trip!",
@@ -789,7 +789,7 @@ export const db: DB = {
               xl_picture_url: ""
             },
             host: {
-              host_id: new ObjectId(),
+              host_id: createId(),
               host_url: "https://www.airbnb.com/users/show/71738243",
               host_name: "Rafa",
               host_location: "Belo Horizonte, State of Minas Gerais, Brazil",
@@ -845,57 +845,57 @@ export const db: DB = {
             },
             reviews: [
               {
-                _id: new ObjectId(),
+                _id: createId(),
                 date: new Date("2017-02-28T05:00:00.000Z"),
-                listing_id: new ObjectId(),
-                reviewer_id: new ObjectId(),
+                listing_id: createId(),
+                reviewer_id: createId(),
                 reviewer_name: "Victoria",
                 comments: "Apartamento realmente muito bem localizado, perto de tudo, inclusive da estação de metrô, o que facilita muito a locomoção por toda a cidade."
               },
               {
-                _id: new ObjectId(),
+                _id: createId(),
                 date: new Date("2017-07-18T04:00:00.000Z"),
-                listing_id: new ObjectId(),
-                reviewer_id: new ObjectId(),
+                listing_id: createId(),
+                reviewer_id: createId(),
                 reviewer_name: "Kirill",
                 comments: "I was really surprised by the apartment! Amazing location, helpful owner who is always ready to help. The apartment clean, cosy and near to everything! I'm really looking forward to stay there once again!"
               },
               {
-                _id: new ObjectId(),
+                _id: createId(),
                 date: new Date("2017-07-23T04:00:00.000Z"),
-                listing_id: new ObjectId(),
-                reviewer_id: new ObjectId(),
+                listing_id: createId(),
+                reviewer_id: createId(),
                 reviewer_name: "Lucas",
                 comments: "Aos que procuram um lugar confortável, próximo do metrô, próximo da praia de Copacabana e com uma vizinhança relativamente calma, esse é o lugar perfeito. O anfitrião é uma pessoa extremamente acessível e não demorou para responder minhas mensagens. Existem mercados e restaurantes próximos ao local. Altamente recomendado e voltarei a utilizar o local em uma próxima oportunidade."
               },
               {
-                _id: new ObjectId(),
+                _id: createId(),
                 date: new Date("2017-08-16T04:00:00.000Z"),
-                listing_id: new ObjectId(),
-                reviewer_id: new ObjectId(),
+                listing_id: createId(),
+                reviewer_id: createId(),
                 reviewer_name: "Kush",
                 comments: "Rafa foi muito legal. Sempre ajudando-me com qualquer coisa que precisava. Super responsiva! O apartamento está lindo demais! \n\nRafa es una persona muy chevere. Me ajudo mucho y era muy amable! \n\nRafa was great. Very friendly and always helping out. The apartment is beautiful!"
               },
               {
-                _id: new ObjectId(),
+                _id: createId(),
                 date: new Date("2017-08-31T04:00:00.000Z"),
-                listing_id: new ObjectId(),
-                reviewer_id: new ObjectId(),
+                listing_id: createId(),
+                reviewer_id: createId(),
                 reviewer_name: "Cyrill",
                 comments: "Geräumige Wohnung mit einer guten Lage. Sauber und gepflegt. Netter gastgeber der immer sofort Antwort gibt. Rundherum gibt es viele kleine Läden um einkaufen zu gehen. Weg bis zum strand ist etwa 1 Minute laufen. Würde wieder kommen, war topp "
               },
               {
-                _id: new ObjectId(),
+                _id: createId(),
                 date: new Date("2017-09-11T04:00:00.000Z"),
-                listing_id: new ObjectId(),
-                reviewer_id: new ObjectId(),
+                listing_id: createId(),
+                reviewer_id: createId(),
                 reviewer_name: "Denise",
                 comments: "Agradecemos por toda hospitalidade, apartamento muito confortável, limpo e bem localizado. Obrigada Rafael, esperamos voltar em breve pra essa cidade maravilhosa!"
               }
             ]
           },
           {
-            _id: new ObjectId(),
+            _id: createId(),
             listing_url: "https://www.airbnb.com/rooms/17132840",
             name: "Les portes jaunes",
             summary: "Belle grande maison sur 2 étages, avec jardin et terrasse. Au cœur du Plateau mais très calme. 2200 pieds carrés, 3 chambres fermées, cuisinière et barbecue au gaz, stationnement privé. Beaucoup de charme! Great house on 2 floors, with garden and terrace. Right in the Plateau's heart, but very quiet. 2200 square feet, gaz stove and bbq, private parking. Lots of charm!",
@@ -957,7 +957,7 @@ export const db: DB = {
               xl_picture_url: ""
             },
             host: {
-              host_id: new ObjectId(),
+              host_id: createId(),
               host_url: "https://www.airbnb.com/users/show/41753544",
               host_name: "Jean-François",
               host_location: "Montreal, Québec, Canada",
@@ -1009,49 +1009,49 @@ export const db: DB = {
             },
             reviews: [
               {
-                _id: new ObjectId(),
+                _id: createId(),
                 date: new Date("2017-05-08T04:00:00.000Z"),
-                listing_id: new ObjectId(),
-                reviewer_id: new ObjectId(),
+                listing_id: createId(),
+                reviewer_id: createId(),
                 reviewer_name: "Conor",
                 comments: "Great location. Lovely house. Bigger than it looks in the pictures. Dog friendly. Would definitely recommend it."
               },
               {
-                _id: new ObjectId(),
+                _id: createId(),
                 date: new Date("2017-05-16T04:00:00.000Z"),
-                listing_id: new ObjectId(),
-                reviewer_id: new ObjectId(),
+                listing_id: createId(),
+                reviewer_id: createId(),
                 reviewer_name: "Martin",
                 comments: " Gorgeous home even better in person. The private parking spot is tight as we rented a van. Street parking is annoying as there's restrictions. We got two parking tickets! \nGreat city with lots of parks, bakeries, markets and restaurants. Short walk to subway. Can't wait to visit again"
               },
               {
-                _id: new ObjectId(),
+                _id: createId(),
                 date: new Date("2017-05-22T04:00:00.000Z"),
-                listing_id: new ObjectId(),
-                reviewer_id: new ObjectId(),
+                listing_id: createId(),
+                reviewer_id: createId(),
                 reviewer_name: "Marie",
                 comments: "Cette maison a beaucoup de charme. Idéalement située, elle permet de profiter des attraits du plateau tout en étant très au calme."
               },
               {
-                _id: new ObjectId(),
+                _id: createId(),
                 date: new Date("2017-05-31T04:00:00.000Z"),
-                listing_id: new ObjectId(),
-                reviewer_id: new ObjectId(),
+                listing_id: createId(),
+                reviewer_id: createId(),
                 reviewer_name: "Alicja & Gabriel",
                 comments: "While Jean-Francois was out of the country during our stay, he had gone out of his way to make our experience a pleasure. This included lots of information and personal suggestions for dining and sight seeing as well as an excellent customer service including his friend who welcomed us upon our arrival. \nThe appartement was very beautiful, comfortable and welcoming! We were on our business trip and this appartement, with a terrace and a charming small garden, made us feel like on holidays after long days of work. We would definitely recommend staying here!\n"
               },
               {
-                _id: new ObjectId(),
+                _id: createId(),
                 date: new Date("2017-06-05T04:00:00.000Z"),
-                listing_id: new ObjectId(),
-                reviewer_id: new ObjectId(),                reviewer_name: "Yoland",
+                listing_id: createId(),
+                reviewer_id: createId(),                reviewer_name: "Yoland",
                 comments: "Appartements extraordinaire. Bien situé. ( Restaurant, bar, piste cyclable) \nParking sur place. "
               },
               {
-                _id: new ObjectId(),
+                _id: createId(),
                 date: new Date("2017-07-04T04:00:00.000Z"),
-                listing_id: new ObjectId(),
-                reviewer_id: new ObjectId(),
+                listing_id: createId(),
+                reviewer_id: createId(),
                 reviewer_name: "Robin",
                 comments: "We loved Jean-François's place. It was comfortable and close to everything. However, there was construction that started really early in the morning, around 7am in the morning! The construction noice woke us up and unfortunately was disruptive. Apart from the construction noise, the house was great and felt like home."
               }

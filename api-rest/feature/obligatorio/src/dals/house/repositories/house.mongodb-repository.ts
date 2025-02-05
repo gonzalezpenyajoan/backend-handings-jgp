@@ -2,6 +2,7 @@ import { HouseRepository } from "./house.repository.js";
 import { House } from "../house.model.js";
 import { getHouseContext } from "../house.context.js";
 import { ObjectId } from "mongodb";
+import { createId } from "#common/helpers/id.helper.js";
 
 export const mongoDBRepository: HouseRepository = {
   getHouseList: async (page?: number, pageSize?: number) => {
@@ -16,7 +17,7 @@ export const mongoDBRepository: HouseRepository = {
   getHouse: async (id: string) => {
     return await getHouseContext().findOne(
       {
-        _id: new ObjectId(id)
+        _id: id
       }
     )
   },
@@ -38,23 +39,23 @@ export const mongoDBRepository: HouseRepository = {
   deleteHouse: async (id: string) => {
     const { deletedCount } = await getHouseContext().deleteOne(
       {
-        _id: new ObjectId(id)
+        _id: id
       });
       return deletedCount === 1;
   },
   postReview: async (id: string, review) => {
-    const review_id = new ObjectId();
+    const review_id = createId();
     const { reviews } =  await getHouseContext().findOneAndUpdate(
       {
-        _id: new ObjectId(id)
+        _id: id
       },
       {
         $push: {
           reviews: {
             _id: review_id,
             date: new Date(),
-            listing_id: new ObjectId(review.listing_id),
-            reviewer_id: new ObjectId(review.reviewer_id),
+            listing_id: review.listing_id,
+            reviewer_id: review.reviewer_id,
             reviewer_name: review.reviewer_name,
             comments: review.comments
           }

@@ -1,7 +1,7 @@
 import { HouseRepository } from "./house.repository.js";
 import { House } from "../house.model.js";
 import HouseModel from "../house.context.js";
-import { ObjectId, ReturnDocument } from "mongodb";
+import { ObjectId } from "mongodb";
 
 export const mongoDBRepository: HouseRepository = {
   getHouseList: async (page?: number, pageSize?: number) => {
