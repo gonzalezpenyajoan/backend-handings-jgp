@@ -1,7 +1,6 @@
 import { HouseRepository } from "./house.repository.js";
 import { House } from "../house.model.js";
 import { getHouseContext } from "../house.context.js";
-import { ObjectId } from "mongodb";
 import { createId } from "#common/helpers/id.helper.js";
 
 export const mongoDBRepository: HouseRepository = {

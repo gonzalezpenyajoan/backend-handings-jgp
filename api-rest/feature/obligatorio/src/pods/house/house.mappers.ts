@@ -1,6 +1,5 @@
 import * as model from "#dals/index.js";
 import * as apiModel from "./house.api-model.js";
-import { ObjectId } from "mongodb";
 
 export const mapHouseFromModelToAPI = (house: model.House): apiModel.House => {
     house.reviews.sort((review1, review2) => - compareDates(review1.date, review2.date));

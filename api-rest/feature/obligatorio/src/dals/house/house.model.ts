@@ -1,4 +1,3 @@
-import { ObjectId } from "mongodb";
 export interface House {
     _id: String;
     listing_url?: String;
