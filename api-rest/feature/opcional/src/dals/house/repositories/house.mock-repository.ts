@@ -1,10 +1,10 @@
 import { HouseRepository } from "./house.repository.js";
 import { House, Review } from "../house.model.js";
 import { db } from "../../mock-data.js";
-import { ObjectId } from "mongodb";
+import { createId } from "#common/helpers/id.helper.js";
 
 const insertHouse = (house: House) => {
-    const _id = new ObjectId();
+    const _id = createId();
     const newHouse: House = {
         ...house,
         _id
@@ -15,13 +15,13 @@ const insertHouse = (house: House) => {
 };
 
 const insertReview = (houseId: String, review) => {
-    const house = db.houses.find((h) => h._id.toHexString() === houseId);
+    const house = db.houses.find((h) => h._id === houseId);
     if (!house){
         throw new Error('Unable to find parent reference');
     }
     const newReview: Review = {
         ...review,
-        _id: new ObjectId(),
+        _id: createId(),
         date: new Date()
     };
     const newHouse: House = { ...house };
@@ -48,11 +48,11 @@ const paginateHouseList = (houseList: House[], page: number, pageSize: number) :
 
 export const mockRepository: HouseRepository = {
     getHouseList: async (page?: number, pageSize?: number) => paginateHouseList(db.houses, page, pageSize),
-    getHouse: async (id: string) => db.houses.find((h) => h._id.toHexString() === id),
-    saveHouse: async (house: House) => db.houses.some((h) => h._id.toHexString() === house._id.toHexString()) ? updateHouse(house) : insertHouse(house),
+    getHouse: async (id: string) => db.houses.find((h) => h._id === id),
+    saveHouse: async (house: House) => db.houses.some((h) => h._id === house._id) ? updateHouse(house) : insertHouse(house),
     deleteHouse: async (id: string): Promise<Boolean> => {
-        const exists = db.houses.some((h) => h._id.toHexString() === id);
-        db.houses = db.houses.filter((h) => h._id.toHexString() !== id);
+        const exists = db.houses.some((h) => h._id === id);
+        db.houses = db.houses.filter((h) => h._id !== id);
         return exists;
     },
     postReview: async (id: string, review) => insertReview(id, review),

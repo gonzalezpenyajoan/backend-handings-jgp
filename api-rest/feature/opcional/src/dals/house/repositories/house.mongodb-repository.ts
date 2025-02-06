@@ -1,7 +1,6 @@
 import { HouseRepository } from "./house.repository.js";
 import { House } from "../house.model.js";
 import { getHouseContext } from "../house.context.js";
-import { ObjectId, ReturnDocument } from "mongodb";
 
 export const mongoDBRepository: HouseRepository = {
   getHouseList: async (page?: number, pageSize?: number) => {
@@ -14,7 +13,7 @@ export const mongoDBRepository: HouseRepository = {
       .toArray();
   },
   getHouse: async (id: string) => {
-    return await getHouseContext().findOne({_id: new ObjectId(id)})
+    return await getHouseContext().findOne({_id: id})
   },
   saveHouse: async (house: House) => {
     return await getHouseContext()
@@ -28,17 +27,16 @@ export const mongoDBRepository: HouseRepository = {
       );
   },
   deleteHouse: async (id: string) => {
-    const { deletedCount } = await getHouseContext().deleteOne({_id: new ObjectId(id)});
+    const { deletedCount } = await getHouseContext().deleteOne({_id: id});
     return deletedCount === 1;
   },
   postReview: async (id: string, review) => {
-    const review_id = new ObjectId();
     const { reviews } =  await getHouseContext().findOneAndUpdate(
-      { _id: new ObjectId(id) },
+      { _id: id },
       {
         $push: {
           reviews: {
-            _id: review_id,
+            _id: id,
             date: new Date(),
             ...review
           }
@@ -49,11 +47,11 @@ export const mongoDBRepository: HouseRepository = {
         returnDocument: 'after'
       }
     );
-    return reviews.find((r) => r._id === review_id);
+    return reviews.find((r) => r._id === id);
   },
-  updateHouse: async (id: string, house: House) => {
+  updateHouse: async (house: House) => {
     return await getHouseContext().findOneAndUpdate(
-      { _id: new ObjectId(id) },
+      { _id: house._id },
       { $set: house },
       { returnDocument: 'after' }
     )
