@@ -2,6 +2,7 @@ import * as model from "#dals/index.js";
 import * as apiModel from "./house.api-model.js";
 
 export const mapHouseFromModelToAPI = (house: model.House): apiModel.House => {
+    if (!house) return null;
     house.reviews.sort((review1, review2) => - compareDates(review1.date, review2.date));
     return {
         id: house._id,
@@ -22,10 +23,12 @@ function compareDates (date1: Date, date2: Date) {
 }
 
 export const mapHouseListFromModelToAPI = (houseList: model.House[]): apiModel.House[] => {
+    if (!houseList) return null;
     return houseList.map(mapHouseFromModelToAPI);
 }
 
 export const mapHouseFromAPIToModel = (house: apiModel.House): model.House => {
+    if (!house) return null;
     return {
         _id: house.id,
         name: house.name,
