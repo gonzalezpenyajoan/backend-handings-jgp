@@ -2,6 +2,7 @@ import { HouseRepository } from "./house.repository.js";
 import { House } from "../house.model.js";
 import HouseModel from "../house.context.js";
 import { ObjectId } from "mongodb";
+import { createId } from "#common/helpers/id.helper.js";
 
 export const mongoDBRepository: HouseRepository = {
   getHouseList: async (page?: number, pageSize?: number) => {
@@ -14,7 +15,7 @@ export const mongoDBRepository: HouseRepository = {
       .lean() as House[];
   },
   getHouse: async (id: string) => {
-    return await HouseModel.findOne({_id: new ObjectId(id)}).lean() as House;
+    return await HouseModel.findOne({_id: id}).lean() as House;
   },
   saveHouse: async (house: House) => {
     return await HouseModel
@@ -32,9 +33,9 @@ export const mongoDBRepository: HouseRepository = {
     return deletedCount === 1;
   },
   postReview: async (id: string, review) => {
-    const review_id = new ObjectId();
+    const review_id = createId();
     const { reviews } =  await HouseModel.findOneAndUpdate(
-      { _id: new ObjectId(id) },
+      { _id: id },
       {
         $push: {
           reviews: {
@@ -53,7 +54,7 @@ export const mongoDBRepository: HouseRepository = {
   },
   updateHouse: async (house: House): Promise<House> => {
     return await HouseModel.findOneAndUpdate(
-      { _id: new ObjectId(house._id) },
+      { _id: house._id },
       { $set: house },
       { returnDocument: 'after' }
     ).lean() as House;

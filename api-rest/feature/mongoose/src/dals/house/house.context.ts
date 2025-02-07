@@ -8,7 +8,7 @@ const imagesSchema = new Schema({
 });
 
 const hostSchema = new Schema({
-  host_id: { type: Schema.Types.ObjectId, required: true },
+  host_id: { type: String, required: true },
   host_url: { type: String, required: true },
   host_name: { type: String, required: true },
   host_location: { type: String, required: true },
@@ -58,16 +58,16 @@ const reviewScoresSchema = new Schema({
 });
 
 const reviewSchema = new Schema({
-  _id: { type: Schema.Types.ObjectId, required: true },
+  _id: { type: String, required: true },
   date: { type: Date, required: true },
-  listing_id: { type: Schema.Types.ObjectId, required: true },
-  reviewer_id: { type: Schema.Types.ObjectId, required: true },
+  listing_id: { type: String, required: true },
+  reviewer_id: { type: String, required: true },
   reviewer_name: { type: String, required: true },
   comments: { type: String, required: false }
 });
 
 const houseSchema = new Schema({
-  _id: { type: Schema.Types.ObjectId, required: true },
+  _id: { type: String, required: true },
   listing_url: { type: String, required: false },
   name: { type: String, required: true },
   summary: { type: String, required: false },
