@@ -8,6 +8,6 @@ describe("createId tests", () => {
         // Then
         expect(id).toBeTypeOf('string');
         expect(Number.isInteger(Number(id))).toBe(true);
-        expect(id.length).toBe(8);
+        expect(id).toHaveLength(8);
     });
 });
