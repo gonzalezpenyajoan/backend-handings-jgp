@@ -2,23 +2,12 @@ import jwt from 'jsonwebtoken';
 import { UserSession, Role } from '#core/models/index.js';
 import { RequestHandler } from 'express';
 import { ENV } from '#core/constants/env.constants.js';
-
-const verify = (token: string, secret: string): Promise<UserSession> =>
-    new Promise((resolve, reject) => {
-        jwt.verify(token, secret, (error, userSession: UserSession) => {
-            if (error) reject(error);
-            if (userSession) {
-                resolve(userSession);
-            } else {
-                reject();
-            }    
-        });
-});
+import { verifyJWT } from '#common/helpers/jwt.helpers.js';
 
 export const authenticationMiddleware: RequestHandler = async (req, res, next) => {
     try {
         const [, token] = req.cookies.authorization?.split(" ") || [];
-        const userSession = await verify(token, ENV.AUTH_SECRET);
+        const userSession = await verifyJWT<UserSession>(token, ENV.AUTH_SECRET);
         req.userSession = userSession;
         next();
     } catch (error) {
@@ -28,7 +17,7 @@ export const authenticationMiddleware: RequestHandler = async (req, res, next) =
 };
 
 const isAuthorized = (currentRole: Role, allowedRoles: Role[]) =>
-    (Boolean(currentRole) && allowedRoles?.some((role) => currentRole === role));
+    Boolean(currentRole) && allowedRoles?.some((role) => currentRole === role);
 
 export const authorizationMiddleware = (allowedRoles: Role[]): RequestHandler => async (req, res, next) => {
     if(isAuthorized(req.userSession?.role, allowedRoles)) {

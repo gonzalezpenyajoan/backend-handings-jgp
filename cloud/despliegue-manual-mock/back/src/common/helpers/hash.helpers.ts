@@ -23,7 +23,6 @@ const areEquals = (hashA: string, hashB: string): boolean =>
 
 export const verifyHash = async (password: string, hashedPassword: string): Promise<boolean> => {
     const [salt, hash] = hashedPassword.split(':');
-
     const [, newHash] = (await hashSaltAndPassword(salt, password)).split(':');
     return areEquals(hash, newHash);
 }
