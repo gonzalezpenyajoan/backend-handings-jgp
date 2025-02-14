@@ -8,13 +8,5 @@ api-rest/feature/mongoose/mongo-data
 cloud/despliegue-manual-mock/front/node_modules
 cloud/despliegue-manual-mock/back/node_modules
 cloud/despliegue-manual-mock/back/mongo-data
-cloud/despliegue-manual-mongo/node_modules
-cloud/despliegue-manual-mongo/mongo-data
-cloud/despliegue-automatico/node_modules
-cloud/despliegue-automatico/mongo-data
-cloud/images-from-s3/node_modules
-cloud/images-from-s3/mongo-data
-cloud/despliegue-azure-automatico/node_modules
-cloud/despliegue-azure-automatico/mongo-data
-cloud/despliegue-aws-automatico/node_modules
-cloud/despliegue-aws-automatico/mongo-data
+cloud/despliegue-manual-mock/back/dist
+cloud/despliegue-manual-mock/back/public
