@@ -1,6 +1,6 @@
 import { Role } from "./role.model.js";
 
 export interface UserSession {
-    id: string;
+    id: String;
     role: Role;
 }

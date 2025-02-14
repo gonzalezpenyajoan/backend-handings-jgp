@@ -8,7 +8,6 @@ api-rest/feature/mongoose/mongo-data
 cloud/despliegue-manual-mock/front/node_modules
 cloud/despliegue-manual-mock/back/node_modules
 cloud/despliegue-manual-mock/back/mongo-data
-cloud/despliegue-manual-mock/back/public
 cloud/despliegue-manual-mongo/node_modules
 cloud/despliegue-manual-mongo/mongo-data
 cloud/despliegue-automatico/node_modules
