@@ -14,13 +14,15 @@ export const db: DB = {
         _id: new ObjectId(),
         email: 'admin@email.com',
         password: 'test',
-        role: 'admin'
+        role: 'admin',
+        avatar: '/admin-avatar.png'
       },
       {
         _id: new ObjectId(),
         email: 'standard@email.com',
         password: 'test',
-        role: 'standard-user'
+        role: 'standard-user',
+        avatar: '/user-avatar.png'
       }
     ],
     houses: [
