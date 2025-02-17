@@ -15,3 +15,8 @@ cloud/despliegue-manual-mongo/back/node_modules
 cloud/despliegue-manual-mongo/back/mongo-data
 cloud/despliegue-manual-mongo/back/dist
 cloud/despliegue-manual-mongo/back/public
+cloud/despliegue-automatico/front/node_modules
+cloud/despliegue-automatico/back/node_modules
+cloud/despliegue-automatico/back/mongo-data
+cloud/despliegue-automatico/back/dist
+cloud/despliegue-automatico/back/public
