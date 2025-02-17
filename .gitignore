@@ -10,3 +10,8 @@ cloud/despliegue-manual-mock/back/node_modules
 cloud/despliegue-manual-mock/back/mongo-data
 cloud/despliegue-manual-mock/back/dist
 cloud/despliegue-manual-mock/back/public
+cloud/despliegue-manual-mongo/front/node_modules
+cloud/despliegue-manual-mongo/back/node_modules
+cloud/despliegue-manual-mongo/back/mongo-data
+cloud/despliegue-manual-mongo/back/dist
+cloud/despliegue-manual-mongo/back/public
