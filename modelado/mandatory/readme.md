@@ -29,7 +29,7 @@ Para el modelado de los datos, se ha partido de una estructura con tres coleccio
 
 ![image](./modelado-mandatory-solution.png)
 
-* **Category:** Se refiere a una categoría o grupo a la que un vídeo puede pertenecer. En el caso concreto de la parte obligatoria de esta entrega, esta colección se refiere a un curso. Sin embargo, en la parte opcional se tratará al curso como un caso particular de category. Contiene el nombre del curso y la información de sus autores.
+* **Category:** Se refiere a una categoría o grupo a la que un vídeo puede pertenecer. En el caso concreto de la parte obligatoria de esta entrega, esta colección se refiere a un **curso**. Sin embargo, en la parte opcional de la entrega, se tratará al **curso** como un caso particular de category. Category contiene el nombre del curso y la información de sus autores.
 
 * **Video:** Contiene la información relativa a un video: nombre, categoría (curso) al que pertenece, autor, descripción corta (para la página principal), artículo (texto descriptivo en la página principal del vídeo), fecha de publicación y fecha de su última actualización.
 

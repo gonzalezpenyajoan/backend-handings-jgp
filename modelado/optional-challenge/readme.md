@@ -52,7 +52,7 @@ Antes de continuar, cabe aclarar con mayor detalle cómo se ha resuelto la jerar
 
 Ahora, sin embargo, podría existir un número indeterminado de eslabones intermedios entre el curso y el vídeo. Para resolver esto, des del inicio se creó una colección llamada category del que, en realidad, un curso es simplemente un caso particular (es decir, un curso es un tipo de category). Un vídeo puede pertenecer a una category mediante un campo category_id y una relación de muchos a uno (1:M, múltiples vídeos pueden pertenecer a una misma categoría). Estas categorías, al mismo tiempo, pueden estar anidadas, apuntando cada una de ellas a sus ancestros mediante el campo *ancestors* (String[]).
 
-Una categoría corresponde a un curso cuando no tiene ancestros (es decir, está en lo más alto de la jerarquía) y, además, tiene un course_id asociado. De este modo, mediante una relación 1:1 podemos referenciar una categoría que coincide con un curso a un documento de la colección course, que contiene campos de información adicionales como los autores del curso o el número de visitas.
+Una categoría corresponde a un curso cuando no tiene ancestros (es decir, está en lo más alto de la jerarquía) y, además, tiene un course_id asociado. De este modo, mediante una relación 1:1 podemos referenciar una categoría que coincide con un curso a un documento de la colección *course*, que contiene campos de información adicionales como los autores del curso o el número de visitas.
 
 ### Solución propuesta
 
@@ -90,7 +90,7 @@ Tal como pasa con el patrón de Extended reference, el precio a pagar en este pl
 
 ### Tree pattern
 
-En este modelo hemos aplicado dos tipos distintos de Tree pattern con la finalidad de establecer las relaciones jerárquicas de la forma más eficiente posible (véase el apartado *La jerarquía de Vídeos, Categorías y Cursos*).
+En este modelo hemos aplicado dos tipos distintos de Tree pattern con la finalidad de establecer las relaciones jerárquicas de la forma más eficiente posible (véase el apartado *[La jerarquía de Vídeos, Categorías y Cursos](#la-jerarquía-de-vídeos-categorías-y-cursos)*).
 
 Para empezar, queremos que des de un vídeo o cualquier categoría intermedia sea posible conocer todos sus ancestros hasta el curso que lo contiene todo. Esto no puede ser una consulta pesada, ya que las páginas específicas de una categoría o de un vídeo mostrarán un árbol de contenido (Ejemplo: Front > React > Testing). Con este objetivo, se ha añadido a la colección category el campo *ancestors* (String[]), haciendo que la consulta de la información sea immediata porque nos devuelve una lista de todos los ancestros. No obstante, habría que tener precaución si se crean categorías o cursos con nombres idénticos, por lo que se recomendaría que el campo nombre de una categoría fuese un campo único.
 
