@@ -3,7 +3,7 @@
 
 Un texto en formato CSV tiene el nombre de los campos en la primera fila y los datos en el resto, separados por comas. Crea un parseador que reciba un string en formato CSV y devuelva una colección de objetos. Utiliza destructuring, rest y spread operator donde creas conveniente.
 
-```
+```javascript
 const data = `id,name,surname,gender,email,picture
 15519533,Raul,Flores,male,raul.flores@example.com,https://randomuser.me/api/portraits/men/42.jpg
 82739790,Alvaro,Alvarez,male,alvaro.alvarez@example.com,https://randomuser.me/api/portraits/men/48.jpg
@@ -53,7 +53,7 @@ Formato del resultado:
 
 Extra: Añade un segundo argumento a la función para indicar el número de atributos a añadir. Si dicho argumento no es informado cada objeto tendrá todos los atributos.
 
-```
+```javascript
 const fromCSV = (csv, nAttrs) => {};
 
 console.log(fromCSV(data)); // Cada usuario tendrá todos los atributos como la implementación original
@@ -66,7 +66,7 @@ console.log(fromCSV(data, 4)); // cada usuario tendrá sólo `id`, `name`, `surn
 
 Implementar una funcion replaceAt que tome como primer argumento un array, como segundo argumento un índice y como tercer argumento un valor y reemplace el elemento dentro del array en el índice indicado. El array de entrada no debe de ser mutado, eso es, que debes crear un nuevo array sin modificar el existente. Utiliza spread operator, y slice para conseguirlo.
 
-```
+```javascript
 const elements = ["lorem", "ipsum", "dolor", "sit", "amet"];
 const index = 2;
 const newValue = "furor";
@@ -84,7 +84,7 @@ console.log(result); // ['lorem', 'ipsum', 'furor', 'sit', 'amet'];
 
 Crea una función que reciba una colección de objetos y un año. Dicha función deberá de mostrar los nombres de las tres personas con el ranking más alto del año.
 
-```
+```javascript
 const data = [
   { ranking: 6.3, year: 1998, name: "Monroe", gender: "Genderfluid", id: 1450, surname: "Jerde" },
   { ranking: 5.4, year: 1999, name: "Maxie", gender: "Bigender", id: 1652, surname: "Keebler" },
@@ -135,7 +135,7 @@ console.log(winnerByYear(data, 2004)) // []
 
 Crear funcion para normalizar una colección de objetos a un objeto, de tal manera que devuelva un objeto que tenga como claves las ids de los objetos y como valores los objetos en sí pero sin la id.
 
-```
+```javascript
 const collection = [
   {
     id: "f0b6930c-331a-43e1-80db-e6c46ed552aa",
@@ -253,7 +253,7 @@ Opcional: Si tu solución previa utiliza bucles, crea una versión sin bucles, b
 
 Implementa una función para eliminar valores falsys de una estructura de datos. Si el argumento es un objeto, deberá eliminar sus propiedades falsys. Si el argumento es un array, deberá eliminar los elementos falsys. Si el argumento es un objeto o un array no deberán ser mutados. Siempre deberá de crear una estructura nueva. Si no es ni un objeto ni un array deberá de devolver dicho argumento.
 
-```
+```javascript
 const elements = [0, 1, false, 2, "", 3];
 
 const compact = (arg) => {
@@ -272,7 +272,7 @@ console.log(compact({ price: 0, name: "cloud", altitude: NaN, taste: undefined, 
 
 Dados el siguiente snippet de código, crea la interfaz Student y úsala para sustituir los unknown:
 
-```
+```javascript
 const students: unknown = [
   {
     name: "Patrick Berry",
@@ -298,7 +298,7 @@ students.forEach(logStudent);
 
 Utilizando la interfaz Student del ejercicio anterior, crea la definición de User de tal manera que pueda ser o Student o Teacher. Aplica la definición de User donde sea requerido solventar los errores de tipos.
 
-```
+```javascript
 interface Teacher {
   name: string;
   age: number;
@@ -339,7 +339,7 @@ users.forEach(logUser);
 
 Con el resultado del ejercicio 2, sustituye la función logUser por la siguiente y modifica el código aplicando las guardas que creas conveniente para corregir los errores de compilación:
 
-```
+```javascript
 const logUser = (user: User) => {
   let extraInfo: string;
   if (user.occupation) {
@@ -357,7 +357,7 @@ Extra: Crea dos funciones isStudent e isTeacher que apliquen la guarda y úsalas
 
 Utilizando las misma interfaz de Student, de los ejercicios anteriores arregla los errores de TypeScript para podamos pasar aquellos criterios que necesitemos sin tener que pasar toda la información de un Student. Arregla los subsiguientes errores que aparezcan al asignar tipo a criteria.
 
-```
+```javascript
 const students: Student[] = [
   {
     name: "Luke Patterson",
@@ -402,7 +402,7 @@ filterStudentsBy(students, { age: 35 }).forEach(logStudent);
 
 Mediante genéricos y tuplas, tipa de forma completa la función para solventar los errores de compilación.
 
-```
+```javascript
 const swap = (arg1, arg2) => {
   return [arg2, arg1];
 };
