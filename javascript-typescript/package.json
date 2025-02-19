@@ -4,7 +4,7 @@
   },
   "name": "javascript-typescript",
   "version": "1.0.0",
-  "description": "Un texto en formato CSV tiene el nombre de los campos en la primera fila y los datos en el resto, separados por comas. Crea un parseador que reciba un string en formato CSV y devuelva una colección de objetos. Utiliza destructuring, rest y spread operator donde creas conveniente.",
+  "description": "",
   "main": "ej1.js",
   "dependencies": {
     "esbuild": "^0.23.1",
