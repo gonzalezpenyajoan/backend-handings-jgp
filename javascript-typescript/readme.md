@@ -2,7 +2,7 @@
 
 En este fichero README.md se pueden encontrar los enunciados de los ejercicios con las soluciones como sub-apartado, conteniendo tanto el ejercicio original con las funciones vacías como también el ejercicio resuelto. Sin embargo, en el repositorio también se puede acceder a todos los ficheros individuales de cada ejercicio, donde los archivos .js corresponden a los ejercicios de JavaScript y los archivos .ts corresponden a los ejercicios de typescript.
 
-> **AVISO:** Los ejercicios de typescript usan tipos definidos en types.ts, ya que era repetitivo y conflictivo estar definiendo una y otra vez los mismos tipos en lugar de declararlos una única vez en otro archivo e importarlo.
+> **AVISO:** Los ejercicios de typescript usan tipos definidos en types.ts, ya que era repetitivo y conflictivo estar definiendo una y otra vez los mismos tipos en lugar de declararlos una única vez en otro archivo e importarlo. Los archivos .js en la carpeta typescript correpsonden a los archivos .ts compilados a javascript.
 
 # Ejercicios JavaScript
 
