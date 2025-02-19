@@ -4,15 +4,16 @@ import { getHouseContext } from "../house.context.js";
 import { createId } from "#common/helpers/id.helper.js";
 
 export const mongoDBRepository: HouseRepository = {
-  getHouseList: async (page?: number, pageSize?: number) => {
+  getHouseList: async (page?: number, pageSize?: number, countryCode?: string) => {
     const skip = Boolean(page) ? (page - 1) * pageSize : 0;
     const limit = pageSize ?? 0;
+    const countryFilter = countryCode ? { "address.country_code": countryCode } : {};
     return await getHouseContext()
-      .find()
+      .find({})
       .skip(skip)
       .limit(limit)
       .toArray();
-  },
+    },
   getHouse: async (id: string) => {
     return await getHouseContext().findOne(
       {

@@ -9,7 +9,8 @@ houseAPI
         try {
             const page = Number(req.query.page);
             const pageSize = Number(req.query.pageSize);
-            const houseList = await houseRepository.getHouseList(page, pageSize);
+            const countryCode = req.query.countryCode as string;
+            const houseList = await houseRepository.getHouseList(page, pageSize, countryCode);
             res.send(mapHouseListFromModelToAPI(houseList));
         } catch (error) {
             next(error);

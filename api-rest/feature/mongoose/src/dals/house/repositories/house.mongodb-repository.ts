@@ -5,11 +5,12 @@ import { ObjectId } from "mongodb";
 import { createId } from "#common/helpers/id.helper.js";
 
 export const mongoDBRepository: HouseRepository = {
-  getHouseList: async (page?: number, pageSize?: number) => {
+  getHouseList: async (page?: number, pageSize?: number, countryCode?: string) => {
     const skip = Boolean(page) ? (page - 1) * pageSize : 0;
     const limit = pageSize ?? 0;
+    const countryFilter = countryCode ? { "address.country_code": countryCode } : {};
     return await HouseModel
-      .find()
+      .find(countryFilter)
       .skip(skip)
       .limit(limit)
       .lean() as House[];
