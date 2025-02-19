@@ -32,26 +32,11 @@ const data = [
 ];
 
 const winnerByYear = (arr, year) => {
-const peopleInYear = [];
-const winners = [];
-
-arr.forEach(person => {
-    if(person.year === year) {
-        peopleInYear.push(person);
-    }
-});
-
-if (peopleInYear.length === 0) {
-    return peopleInYear;
-}
-
-peopleInYear.sort(function(a,b){return b.ranking - a.ranking});
-const [first, second, third, ...rest] = peopleInYear;
-const selected = [first, second, third];
-selected.forEach(person => {
-    if (person) winners.push(person.name);
-});
-return winners;
+    return arr
+        .filter((person) => person.year === year)
+        .sort((a,b) => b.ranking - a.ranking)
+        .slice(0,3)
+        .map((person) => {if (person) return person.name});
 };
 
 console.log(winnerByYear(data, 1998)) // [ 'Douglass', 'Randy', 'Monroe' ]

@@ -1,8 +1,4 @@
-interface Student {
-    name: string;
-    age: number;
-    occupation: string;
-}
+import { Student } from "./types";
 
 const students: Student[] = [
   {
