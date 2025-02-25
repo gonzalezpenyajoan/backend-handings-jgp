@@ -25,17 +25,19 @@ A continuación se resumen los requisitos de nuestro modelo según el enunciado.
 
 ## Solución propuesta
 
-Para el modelado de los datos, se ha partido de una estructura con tres colecciones: category, video y author.
+Para el modelado de los datos, se ha partido de una estructura con tres colecciones: course, video y author.
 
 ![image](./modelado-mandatory-solution.png)
 
-* **Category:** Se refiere a una categoría o grupo a la que un vídeo puede pertenecer. En el caso concreto de la parte obligatoria de esta entrega, esta colección se refiere a un **curso**. Sin embargo, en la parte opcional de la entrega, se tratará al **curso** como un caso particular de category. Category contiene el nombre del curso y la información de sus autores.
+* **Course:** Se refiere a un curso que contiene un conjunto de vídeos. En la parte opcional de la entrega, se tratará al **curso** como un caso particular de category para poder establecer un árbol jerárquico de categorías. Course contiene el nombre del curso y la información de sus autores.
 
-* **Video:** Contiene la información relativa a un video: nombre, categoría (curso) al que pertenece, autor, descripción corta (para la página principal), artículo (texto descriptivo en la página principal del vídeo), fecha de publicación y fecha de su última actualización.
+* **Video:** Contiene la información relativa a un video: nombre, curso al que pertenece, tema, autor, descripción corta (para la página principal), artículo (texto descriptivo en la página principal del vídeo), fecha de publicación y fecha de su última actualización.
 
     * Recordemos que la descripción corta y el artículo se almacenan en un recurso externo pero se ha especificado que mongo guarda su GUID.
 
     * Las fechas de publicación y fecha de última actualización son datos relevantes para saber cuáles son los últimos cursos publicados (o que se actualizaron más recientemente).
+  
+    * El enunciado menciona que cada vídeo puede clasificarse por temáticas (Front End, Backend, Devops). Para cumplir con esto se ha añadido la propiedad topic, pero no queda del todo claro si el objeto course o los tags de la parte opcional / desafío sería suficiente para cumplir con este requisito.
 
 * **Author:** Contiene la información de los autores de los cursos y/o videos, con su nombre, descripción, array de sus cursos y array de sus videos. Se podrían añadir más campos como fecha de nacimiento o redes sociales.
 
@@ -65,6 +67,6 @@ Tal como pasa con el patrón de Extended reference, el precio a pagar en este pl
 
 ### Tree pattern
 
-En la parte obligatoria de esta entrega las referencias entre padres e hijos son mínimas, ya que con solo dos niveles de jerarquía ( Curso > Video ) no se requiere de mayor referencia que establecer una relación 1:M entre category y video.
+En la parte obligatoria de esta entrega las referencias entre padres e hijos son mínimas, ya que con solo dos niveles de jerarquía ( Curso > Video ) no se requiere de mayor referencia que establecer una relación 1:M entre course y video.
 
-Sin embargo, como veremos en la parte opcional de la entrega, en esta parte obligatoria hemos preparado los cimientos para establecer un Tree pattern de cara a la parte opcional.
+Sin embargo, como veremos en la parte opcional de la entrega, este modelo será ampliado para incluir tantos niveles de jerarquía como sea necesario.

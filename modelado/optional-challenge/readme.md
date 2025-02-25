@@ -40,7 +40,7 @@ Se parte de la implementación hecha durante en la parte opcional, que consta de
 
 * **Category:** Se refiere a una categoría o grupo a la que un vídeo puede pertenecer. Un curso es un caso particular de category, pero no todos los cursos son category. Un curso es un tipo de category que no tiene padres y que además contiene información específica como un autor o el número de visualizaciones.
 
-* **Video:** Contiene la información relativa a un video: nombre, categoría al que pertenece, curso al que pertenece, autor, descripción corta (para la página principal), artículo (texto descriptivo en la página principal del vídeo), número de visitas, fecha de publicación y fecha de su última actualización.
+* **Video:** Contiene la información relativa a un video: nombre, categoría al que pertenece, curso al que pertenece, tema, autor, descripción corta (para la página principal), artículo (texto descriptivo en la página principal del vídeo), número de visitas, fecha de publicación y fecha de su última actualización.
 
 * **Author:** Contiene la información de los autores de los cursos y/o videos, con su nombre, descripción, array de sus cursos y array de sus videos. Se podrían añadir más campos como fecha de nacimiento o redes sociales.
 
